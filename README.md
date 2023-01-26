@@ -3,3 +3,15 @@ Then I added a map scriptEvaluations to store the evaluation results of each scr
 
 In the last part of the code, I added a calculation to find the script with the highest score based on the three evaluation criteria, conversion rate, customer satisfaction, and appointments generated. I used a weighted average to calculate the score with the weight 60% for conversion rate, 30% for customer satisfaction and 10% for appointments generated.
 You can adjust the weights and criteria as per your requirements. Also, you can add other evaluation criteria and adjust the code accordingly
+
+This code is a simple program that prompts the user to enter a string of text, and then writes that text to an open CRM application and copies it to the clipboard.
+
+It starts by including the necessary headers, including iostream for input/output, string for working with strings, and Windows.h for interacting with the Windows operating system.
+
+In the main function, it first initializes a string variable 'input' and prompts the user to enter text. It uses the getline function to read the input and store it in the 'input' variable.
+
+Next, it uses the FindWindow function from the Windows API to find the window handle of the CRM application, assuming it is open and active. It checks if the window handle is not null, and if so, uses the SendMessage function to send the text to the input field of the CRM application. If the CRM application is not found, it prints an error message.
+
+Then it uses the OpenClipboard function to open the clipboard and the EmptyClipboard function to clear any existing data. It then uses the GlobalAlloc and GlobalLock functions to allocate and lock memory for the text, and uses the strcpy_s function to copy the text from the 'input' variable to the newly allocated memory. It then releases the lock on the memory and sets the clipboard data to the CF_UNICODETEXT format, and closes the clipboard. If it fails to open the clipboard, it prints an error message.
+
+Finally, the code returns 0, indicating a successful execution.
